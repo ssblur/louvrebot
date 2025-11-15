@@ -17,6 +17,7 @@ jobs:
               with:
                 python-version: '3.12' 
             - uses: tiagovrtr/actions-pipenv@v1
+            - run: pipenv install
             - name: Run
               run: pipenv run ./post.py
               env:
