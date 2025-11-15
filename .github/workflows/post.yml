@@ -1,0 +1,20 @@
+name: Post
+
+on:
+    schedule:
+        - cron: "44 * * * *"
+
+jobs:
+    post:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+            - name: Setup
+              uses: VaultVulp/action-pipenv@v2.0.1
+              with:
+                command: install
+            - name: Run
+              uses: VaultVulp/action-pipenv@v2.0.1
+              with:
+                command: python post.py
