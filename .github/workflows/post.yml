@@ -16,13 +16,9 @@ jobs:
             - uses: actions/setup-python@v6
               with:
                 python-version: '3.12' 
-            - uses: VaultVulp/action-pipenv@v2.0.1
-              with:
-                command: install
+            - uses: tiagovrtr/actions-pipenv@v1
             - name: Run
-              uses: VaultVulp/action-pipenv@v2.0.1
-              with:
-                command: python post.py
+              run: pipenv run post.py
               env:
                 BSKY_USER: ${{ secrets.BSKY_USER }}
                 BSKY_PASS: ${{ secrets.BSKY_PASS }}
